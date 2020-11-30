@@ -28,9 +28,9 @@ const Register = ()=> {
         
         const newUser = {email, password, password2, name, avatar}
         
-        await Axios.post('http://localhost:5000/api/users/register', newUser)
+        await Axios.post('https://jobtracker77.herokuapp.com/api/users/register', newUser)
         
-        const loginRes = await Axios.post('http://localhost:5000/api/users/login',{email,password})
+        const loginRes = await Axios.post('https://jobtracker77.herokuapp.com/api/users/login',{email,password})
 
         setUserData({
             token: loginRes.data.token,
