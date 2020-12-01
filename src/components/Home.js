@@ -10,7 +10,7 @@ const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 
 const Home = ()=> {
 
-    const [bgImage, setBgImage] = useState(['https://infallible-hypatia-87a5a2.netlify.app/img/1.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/2.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/3.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/4.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/5.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/6.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/7.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/8.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/9.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/10.jpg','https://infallible-hypatia-87a5a2.netlify.app/img/11.jpg'])
+    const [bgImage, setBgImage] = useState(['https://jobtracker-react-87a5a2.netlify.app/img/1.jpg','https://jobtracker-react-87a5a2.netlify.app/img/2.jpg','https://jobtracker-react-87a5a2.netlify.app/img/3.jpg','https://jobtracker-react-87a5a2.netlify.app/img/4.jpg','https://jobtracker-react-87a5a2.netlify.app/img/5.jpg','https://jobtracker-react-87a5a2.netlify.app/img/6.jpg','https://jobtracker-react-87a5a2.netlify.app/img/7.jpg','https://jobtracker-react-87a5a2.netlify.app/img/8.jpg','https://jobtracker-react-87a5a2.netlify.app/img/9.jpg','https://jobtracker-react-87a5a2.netlify.app/img/10.jpg','https://jobtracker-react-87a5a2.netlify.app/img/11.jpg'])
 
     const [status, setStatus] = useState('All')
     
