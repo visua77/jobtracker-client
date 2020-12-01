@@ -20,7 +20,7 @@ const AddJob = ()=> {
 
         const postJob = {title, description, status}
         
-        await fetch('http://localhost:5000/api/users/jobs/',{
+        await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
             method: 'POST',
             body: JSON.stringify(postJob),
             headers: { 'Content-Type': 'application/json',
