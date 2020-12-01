@@ -37,7 +37,7 @@ const Register = ()=> {
             user: loginRes.data.user
         })
         
-        console.log(loginRes.data.token) 
+        //console.log(loginRes.data.token) 
         localStorage.setItem('auth-token', loginRes.data.token)
         history.push('/')
         

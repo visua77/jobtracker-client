@@ -537,13 +537,24 @@ i:hover {
         display:none;
     }
 
-    h1 {font-size: 1.5rem;}
+    h1 {font-size: 1.2rem;}
     h2 {
-        font-size: 1.5rem;
-        padding-left:1rem;
+        font-size: 1.3rem;
+        padding: 1rem;
     }
 
+    select {
+        width:90%;
+        font-size: 1.3rem;
+    }
 
+    input { 
+        width:90%;
+    }
+
+    label {
+        font-size: 1rem;
+    }
 
     header {
         justify-content:space-between;
@@ -554,12 +565,13 @@ i:hover {
         font-size: .8rem;
         width: 80px;
         
+    }
+    
+    p {
+        font-size: 1rem;
         
-
     }
 
-
-        
 
     .wrapper {
         width:100%;
@@ -569,16 +581,22 @@ i:hover {
 
     }
 
+    .filebase {
+        width:90%;
+    }
+
     .job-card {
-        width: 80%;
+        width: 90%;
     }
 
     .welcome-user {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        width:90%;
+        
     }
 
     .no-jobs {
-        font-size: 1.1rem; 
+        font-size: 1rem; 
     }
 
    
