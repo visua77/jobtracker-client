@@ -491,8 +491,6 @@ i:hover {
     padding:1rem;
 }
 
-
-
 .apply {
     display:flex;
     justify-content: space-between;
@@ -532,4 +530,38 @@ i:hover {
     background: -webkit-linear-gradient(to right, #a8e063, rgba(86, 171, 47, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #a8e063, rgba(86, 171, 47, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+@media (max-width:800px){
+    nav {
+        display:none;
+    }
+
+    h1 {font-size: 1.5rem;}
+    h2 {
+        font-size: 1.5rem;
+        padding-left:1rem;
+    }
+
+    .wrapper {
+        width:100%;
+        
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .job-card {
+        width: 80%;
+    }
+
+    .welcome-user {
+        font-size: 1.3rem;
+    }
+
+    .no-jobs {
+        font-size: 1.1rem; 
+        padding:1rem;
+    }
 }
