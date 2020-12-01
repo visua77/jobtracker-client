@@ -1,5 +1,4 @@
 import React,{useEffect,useState,useContext} from 'react'
-import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import UserContext from '../context/UserContext'
 
@@ -8,7 +7,7 @@ const AddJob = ()=> {
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
     const [status, setStatus] = useState('Green')
-    const [formCheck, setFormCheck] = useState()
+    const [formcheck, setFormCheck] = useState(false)
     const history = useHistory()
 
     const { userData } = useContext(UserContext)
@@ -27,12 +26,18 @@ const AddJob = ()=> {
             'x-auth-token':userData.token }
         })
         .then(res => res.json())
-        .then(data => setFormCheck(data))
+        .then(data => setFormCheck(true))
 
-        //console.log(postJobRes)
-        
-        if(formCheck) history.push('/') 
     }
+
+    useEffect(()=> {
+        if(formcheck===true) {
+            //alert('hiya')
+            history.push('/') 
+        }
+    },[formcheck])
+
+    console.log('checking array',formcheck)
 
     return(
         <div>
