@@ -9,6 +9,7 @@ import Account from './components/Account'
 import Search from './components/Search'
 import Header from './components/Header'
 import Nav from './components/Nav'
+import Hamburger from './components/Hamburger'
 import Footer from './components/Footer'
 import './style.css'
 import UserContext from './context/UserContext'
@@ -47,8 +48,6 @@ useEffect(()=>{
                 }
             })
 
-          
-        
         setUserData({
             token,
             user:userRes.data

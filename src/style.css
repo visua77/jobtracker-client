@@ -34,6 +34,10 @@ nav {
     background-color: rgba(61, 124, 61, .3);
 }
 
+.burger {
+    display:none;
+}
+
 li {
     display:inline-block;
     margin-right:1rem;
@@ -537,7 +541,8 @@ i:hover {
         display:none;
     }
 
-    h1 {font-size: 1.2rem;}
+    h1 {font-size: 1.2rem;
+    margin-left:1rem;}
     h2 {
         font-size: 1.3rem;
         padding: 1rem;
@@ -548,9 +553,10 @@ i:hover {
         font-size: 1.3rem;
     }
 
-    input { 
+    input,textarea { 
         width:90%;
     }
+    
 
     label {
         font-size: 1rem;
@@ -562,14 +568,64 @@ i:hover {
     }
 
     button {
-        font-size: .8rem;
-        width: 80px;
+        font-size: .9rem;
+        width: 90px;
         
     }
     
     p {
         font-size: 1rem;
         
+        
+    }
+
+  li {
+        color:white;
+        display:inline-block;
+        font-weight: 700;
+        padding:1rem;
+        transition: all ease-in-out .3s;
+        cursor: pointer;
+    }
+
+    p.menu {
+        background-color: rgba(0, 0, 0, 0);
+        border:none;
+    }
+
+    .patty {
+        display: flex;
+        align-items: space-between;
+        flex-direction: column;
+        margin: 4px;
+        width:20px;
+        height:3px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2px;
+    }
+
+    .burger {
+        position: absolute;
+        top: 11px;
+        left: 0;
+        width:35%;
+        display:inline-block;
+        color:white;
+        font-size: 1rem;
+        
+    }
+
+    .burger-nav {
+       
+       display:none;
+       transition: all ease-in-out .3s; 
+    }
+
+    .burger-nav-active {
+        margin-top:.7rem;
+        display:inline-block;
+        transition: all ease-in-out .3s; 
+        background-color: rgb(123, 123, 123);
     }
 
     .wrapper {
@@ -613,6 +669,10 @@ i:hover {
         padding:.7rem;
         
         
+    }
+
+    p.ninety {
+        width:90%;
     }
 
    

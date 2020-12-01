@@ -96,9 +96,11 @@ const Home = ()=> {
     //console.log(filterData) */
 
     return(
-        <div className="home"ref={myRef}><div>{userData.user ? <h2>Your collection of jobs:</h2> : <h2>Home</h2>}
-        {userData.user ? <p className="welcome-user"><span>Welcome back: <strong>{userData.user.name}!</strong></span>
-        <span className="no-jobs">you have <strong>{jobs.length} jobs</strong> in your collection!</span>{userData.user.avatar ? <Link to="/account"><img src={userData.user.avatar} className="avatar"onClick={()=>setNavLinks('Acc')} /></Link> : <Link to="/account"><span className="user-wrapper"><i className="fas fa-user"onClick={()=>setNavLinks('Acc')}></i></span></Link>}</p> : null}</div>
+        <div className="home"ref={myRef}>
+            <div>{userData.user ? <h2>Your collection of jobs:</h2> : <h2>Home</h2>}
+            {userData.user ? <p className="welcome-user"><span>Welcome back: <strong>{userData.user.name}!</strong></span>
+            <span className="no-jobs">you have <strong>{jobs.length} jobs</strong> in your collection!</span>{userData.user.avatar ?    <Link to="/account"><img src={userData.user.avatar} className="avatar"onClick={()=>setNavLinks('Acc')} /></Link> : <Link    to="/account"><span className="user-wrapper"><i className="fas fa-user"onClick={()=>setNavLinks('Acc')}></i></span></  Link>}</p> : null}
+            </div>
         
         <div className="wrapper">
             <select onChange={(e)=>setStatus(e.target.value)}>
@@ -107,7 +109,7 @@ const Home = ()=> {
               <option value="Yellow">Yellow</option>  
               <option value="Red">Red</option>  
             </select>
-            <p>Filter by status: {status}</p>
+            <p className="ninety">Filter by status: {status}</p>
            {/* {jobs.length ? jobs.filter(item => (item.status===status)).map(item => (<p>{item.status}</p>)):null} */}
 
         
