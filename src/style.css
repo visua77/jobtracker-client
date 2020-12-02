@@ -519,6 +519,28 @@ i:hover {
   
 }
 
+.error-message {
+    background-color: silver;
+    color:white;
+    max-width: 900px;   
+    width:100%;
+    margin:auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left:1rem;
+    margin-bottom:1rem;
+    height:40px;
+}
+
+.error-button {
+    height:40px;
+    width:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .footer {
     height:60px;
     width:100%;

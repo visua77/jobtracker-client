@@ -21,9 +21,8 @@ const AddJob = ()=> {
     
         const postJob = {title, description, status}
         
-        await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
+/*          await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
             method: 'POST',
-            mode: 'cors', // 'cors' by default
             body: JSON.stringify(postJob),
             headers: { 'Content-Type': 'application/json',
             'x-auth-token':userData.token }
@@ -32,19 +31,37 @@ const AddJob = ()=> {
         .then(data => setFormCheck(true))
         
         .catch((err) => {
-            //alert('error')
             setError(err.toString())
-            console.log('Error:', err.toString())
-            //console.log('my error',error)
-          })
+             console.log('Error:', err.toString())
+         }) */
+ 
+
+
+         function handleErrors(response) {
+            if (!response.ok) {
+                throw Error(response.msg);
+            }
+           return response;
+        } 
+
+         await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
+            method: 'POST',
+            body: JSON.stringify(postJob),
+            headers: { 'Content-Type': 'application/json',
+            'x-auth-token':userData.token }
+        })
             
-        
-    }
+            .then(res => res.json())
+            .then(handleErrors)
+            .then(data => setFormCheck(true))
+            .catch(error => setError(error.toString()) ) 
+
+        }
 
     useEffect(()=> {
         if(formcheck===true) {
             //alert('hiya')
-            //history.push('/') 
+            history.push('/') 
         }
     },[formcheck])
 
@@ -54,7 +71,7 @@ const AddJob = ()=> {
     return(
         <div>
             <h2>Add job</h2>
-            <ErrorMsg message={error} clearError={()=> setError(undefined)} />
+            {error && <ErrorMsg message={error} clearError={()=> setError(undefined)} />}
             <form onSubmit={handleSubmit}>
             <label htmlFor="title">Jobtitle:</label>
             <input type="text"name="title"onChange={(e)=>setTitle(e.target.value)}></input>
