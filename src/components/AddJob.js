@@ -23,7 +23,7 @@ const AddJob = ()=> {
         
         await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
             method: 'POST',
-            mode: 'no-cors', // 'cors' by default
+            mode: 'cors', // 'cors' by default
             body: JSON.stringify(postJob),
             headers: { 'Content-Type': 'application/json',
             'x-auth-token':userData.token }
