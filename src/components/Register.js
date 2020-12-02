@@ -3,6 +3,7 @@ import Axios from 'axios'
 import { useHistory } from 'react-router-dom'
 import UserContext from '../context/UserContext'
 import FileBase from 'react-file-base64'
+import ErrorMsg from './ErrorMsg'
 
 const Register = ()=> {
     const [email, setEmail]=useState()
@@ -10,6 +11,7 @@ const Register = ()=> {
     const [password2, setPassword2]=useState()
     const [avatar, setAvatar]=useState()
     const [name, setName]=useState()
+    const [error, setError] = useState()
     
 
     const { setUserData, userData } = useContext(UserContext)
@@ -25,7 +27,7 @@ const Register = ()=> {
     const handleSubmit = async (e)=> {
         e.preventDefault()
         
-        
+        try{
         const newUser = {email, password, password2, name, avatar}
         
         await Axios.post('https://jobtracker77.herokuapp.com/api/users/register', newUser)
@@ -40,12 +42,15 @@ const Register = ()=> {
         //console.log(loginRes.data.token) 
         localStorage.setItem('auth-token', loginRes.data.token)
         history.push('/')
-        
+    }catch (err){
+        err.response.data.msg && setError(err.response.data.msg)
+    }
     }
 
     return(
         <div>
             <h2>Register an account</h2>
+            {error && <ErrorMsg message={error} clearError={()=> setError(undefined)} />}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="register-email">Email:</label>
                 <input type="email"name="register-email"onChange={(e)=>setEmail(e.target.value)}></input>
