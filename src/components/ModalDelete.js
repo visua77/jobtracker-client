@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 
 const ModalDelete = (props)=> {
 
-    const { userData } = useContext(UserContext)
+    const { userData,setUserData } = useContext(UserContext)
     const history = useHistory()
 
     const handleClose = () => {
@@ -20,6 +20,8 @@ const ModalDelete = (props)=> {
             'x-auth-token':userData.token }
         })
         
+        setUserData({token:undefined, user:undefined})
+        localStorage.setItem('auth-token','')
         history.push('/')
     }
 

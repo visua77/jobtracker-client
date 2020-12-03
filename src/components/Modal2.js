@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect,useState} from 'react'
 import UserContext from '../context/UserContext'
 import {useHistory} from 'react-router-dom'
 
@@ -6,6 +6,7 @@ const Modal2 = (props)=> {
 
     const { userData } = useContext(UserContext)
     const history = useHistory()
+    
 
     const handleClose = () => {
         props.setModaltoggle(false)
@@ -21,11 +22,10 @@ const Modal2 = (props)=> {
         })
         
         props.setModaltoggle(false)
-        history.push('/')
-        //console.log(postJobRes)
         
         
-    }
+        }
+
 
     return(
         <div className={props.class ? "modal-active" : "modal"}>

@@ -50,7 +50,7 @@ const Home = ()=> {
         setJobs([])
       } */
     
-    },[userData,modaltoggle])
+    },[userData,modaltoggle,modaltoggle2])
 
 
     useEffect(()=>{

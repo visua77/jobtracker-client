@@ -11,6 +11,7 @@ const AddJob = ()=> {
     const [formcheck, setFormCheck] = useState(false)
     const [error, setError] = useState()
     const history = useHistory()
+    const [theres, setTheres] = useState(false)
 
     const { userData } = useContext(UserContext)
 
@@ -20,52 +21,34 @@ const AddJob = ()=> {
         e.preventDefault()
     
         const postJob = {title, description, status}
-        
-/*          await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
+
+
+         const resJson = await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
             method: 'POST',
             body: JSON.stringify(postJob),
             headers: { 'Content-Type': 'application/json',
             'x-auth-token':userData.token }
         })
-        .then(res => res.json())
-        .then(data => setFormCheck(true))
-        
-        .catch((err) => {
-            setError(err.toString())
-             console.log('Error:', err.toString())
-         }) */
- 
-
-
-         function handleErrors(response) {
-            if (!response.ok) {
-                throw Error(response.msg);
-            }
-           return response;
-        } 
-
-         await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
-            method: 'POST',
-            body: JSON.stringify(postJob),
-            headers: { 'Content-Type': 'application/json',
-            'x-auth-token':userData.token }
-        })
-            
             .then(res => res.json())
-            .then(handleErrors)
-            .then(data => setFormCheck(true))
+            .then(res => {
+                if (res._id) {
+                    setTheres(true)
+                  } else {
+                    throw new Error(res.msg)
+                  }
+            })
             .catch(error => setError(error.toString()) ) 
-
         }
 
     useEffect(()=> {
-        if(formcheck===true) {
+        if(theres===true) {
             //alert('hiya')
             history.push('/') 
         }
-    },[formcheck])
+    },[theres])
 
     //console.log('checking array',formcheck)
+    //console.log('response is',theres)
     
 
     return(
