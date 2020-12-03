@@ -563,8 +563,10 @@ i:hover {
         display:none;
     }
 
-    h1 {font-size: 1.2rem;
-    margin-left:1rem;}
+    h1 {font-size: 1rem;
+    margin-left:1rem;
+    line-height: 1.4rem;    
+}
     h2 {
         font-size: 1.3rem;
         padding: 1rem;
@@ -665,6 +667,7 @@ i:hover {
     .job-card {
         width: 90%;
     }
+    
 
     .welcome-user {
         font-size: 1.2rem;
@@ -678,6 +681,21 @@ i:hover {
 
     .update-wrapper {
         width:80%;
+    }
+
+    .search-headline {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .search-comp {
+        font-size: .6rem;
+        font-weight: 700;
+    }
+
+    .search-img {
+        height:30px;
+        
     }
 
     p.warning {
