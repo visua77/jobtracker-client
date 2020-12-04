@@ -41,6 +41,7 @@ const handleSubmit = (e)=> {
         
         <form onSubmit={handleSubmit}>
             <input type="text"placeholder="Type something..."onChange={(e)=>setQuery(e.target.value)}></input>
+            
         </form>
 
 

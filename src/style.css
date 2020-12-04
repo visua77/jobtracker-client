@@ -103,6 +103,17 @@ input[type=email],input[type=password],input[type=text] {
     border-radius: 8px;
 }
 
+input[type=email],input[type=password],input.input-upd[type=text] {
+    display:block;
+    font-size: 1.4rem;
+    padding:.3rem;
+    max-width:900px;
+    color:white;
+    background-color: rgba(255, 123, 123, 0.5);
+    border:1px solid rgba(0, 0, 0, .4);
+    border-radius: 8px;
+}
+
 textarea {
     width:100%;
     margin: auto;
@@ -112,6 +123,20 @@ textarea {
     padding:.3rem;
     max-width:900px;
     background-color: rgba(200, 200, 200, 0.5);
+    border:1px solid rgba(0, 0, 0, .4);
+    border-radius: 8px;
+}
+
+textarea.input-upd {
+    width:100%;
+    margin: auto;
+    margin-bottom:1rem;
+    display:block;
+    font-size: 1.4rem;
+    padding:.3rem;
+    max-width:900px;
+    color:white;
+    background-color: rgba(255, 123, 123, 0.5);
     border:1px solid rgba(0, 0, 0, .4);
     border-radius: 8px;
 }

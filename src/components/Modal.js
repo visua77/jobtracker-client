@@ -37,13 +37,15 @@ export const Modal = (props) => {
         <span className="close-modal"onClick={handleClose}>X</span>
         <h2 className="update-job">Update job-post:</h2>
         <p><span className="white-color">ID: {props.id}</span></p>
+        
         <form onSubmit={handleSubmit}>
             <label htmlFor="title"><span className="white-color">Jobtitle:</span></label>
-            <input type="text"name="title"onChange={(e)=>setTitle(e.target.value)}></input>
+            <input type="text"name="title"value={props.upd.title}className="input-upd"onChange={(e)=>setTitle(e.target.value)}></input>
             <label htmlFor="description"><span className="white-color">Description:</span></label>
-            <textarea type="text"name="description"rows="6" onChange={(e)=>setDescription(e.target.value)}></textarea>
+            <textarea type="text"name="description"rows="6"value={props.upd.description}className="input-upd"onChange={(e)=>setDescription(e.target.value)}></textarea>
             <label htmlFor="status"><span className="white-color">Status:</span></label>
             <select name="status"onChange={(e)=>setStatus(e.target.value)}>
+                <option selected={props.upd.status}>{props.upd.status}</option>
                 <option value="Green">Green</option>
                 <option value="Yellow">Yellow</option>
                 <option value="Red">Red</option>

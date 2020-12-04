@@ -22,13 +22,18 @@ const Home = ()=> {
     const [jobs, setJobs] = useState([])
     const [alljobs, setAllJobs] = useState([])
     const [id, setId] = useState()
+    const [upd, setUpd] = useState({
+        title:undefined, 
+        description:undefined, 
+        status:undefined
+    })
     const [filtereddata, setFilteredData]= useState([{status:'Green'},{status:'Red'},{status:'Green'},{status:'Yellow'},{status:'Red'}])
     
     const[modaltoggle, setModaltoggle] = useState(false)
     const[modaltoggle2, setModaltoggle2] = useState(false)
     
     //console.log('our id is:',id)
-    //console.log(userData)
+    console.log('our updateObj:',upd)
     //console.log("avatar:",userData.user.avatar)
 
       useEffect(()=>{
@@ -112,8 +117,7 @@ const Home = ()=> {
             <p className="ninety">Filter by status: {status}</p>
            {/* {jobs.length ? jobs.filter(item => (item.status===status)).map(item => (<p>{item.status}</p>)):null} */}
 
-        
-        
+            
             {userData && jobs.length && status!='All' ? 
             jobs.filter(item =>(item.status===status)).map(job => (<div key={job._id} className="job-card">
             <span className="open-delete"onClick={()=>{handleClick()
@@ -122,6 +126,11 @@ const Home = ()=> {
             <h3 style={{ backgroundImage:`url(${bgImage[Math.floor(Math.random() * bgImage.length)]}`}} className="job-title"><span className="job-title-rows">{job.title}</span>
             <span className="dots"onClick={()=>{handleModal()
             executeScroll()
+            setUpd({
+                title:job.title, 
+                description:job.description, 
+                status:job.status
+            })
             setId(job._id)}}>...</span></h3>
             <p className="description">{job.description}</p>
             <p className="moment">Status: <span className={job.status==='Green' ? "status green" : job.status==='Yellow' ? "status yellow": "status red"}>{job.status}</span></p>
@@ -136,6 +145,11 @@ const Home = ()=> {
             <h3 style={{ backgroundImage:`url(${bgImage[Math.floor(Math.random() * bgImage.length)]}`}} className="job-title"><span className="job-title-rows">{job.title}</span>
             <span className="dots"onClick={()=>{handleModal()
             executeScroll()
+            setUpd({
+                title:job.title, 
+                description:job.description, 
+                status:job.status
+            })
             setId(job._id)}}>...</span></h3>
             <p className="description">{job.description}</p>
             <p className="moment">Status: <span className={job.status==='Green' ? "status green" : job.status==='Yellow' ? "status yellow": "status red"}>{job.status}</span></p>
@@ -163,7 +177,7 @@ const Home = ()=> {
 
             
             </div>
-            <Modal class={modaltoggle} setModaltoggle={setModaltoggle} id={id} />
+            <Modal class={modaltoggle} setModaltoggle={setModaltoggle} id={id} upd={upd}/>
             <Modal2 class={modaltoggle2} setModaltoggle={setModaltoggle2} id={id} />
         </div>
     )
