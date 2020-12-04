@@ -5,6 +5,14 @@ import Modal2 from './Modal2'
 import UserContext from '../context/UserContext'
 import NavLinks from '../context/NavContext'
 import moment from 'moment'
+import PuffLoader from "react-spinners/PuffLoader"
+import { css } from "@emotion/core"
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-top:2rem;
+`;
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)  
 
@@ -106,7 +114,8 @@ const Home = ()=> {
             {userData.user ? <p className="welcome-user"><span>Welcome back: <strong>{userData.user.name}!</strong></span>
             <span className="no-jobs">you have <strong>{jobs.length} jobs</strong> in your collection!</span>{userData.user.avatar ?    <Link to="/account"><img src={userData.user.avatar} className="avatar"onClick={()=>setNavLinks('Acc')} /></Link> : <Link    to="/account"><span className="user-wrapper"><i className="fas fa-user"onClick={()=>setNavLinks('Acc')}></i></span></  Link>}</p> : null}
             </div>
-        
+
+       
         <div className="wrapper">
             <select onChange={(e)=>setStatus(e.target.value)}>
               <option value="All">All</option>  
@@ -137,7 +146,9 @@ const Home = ()=> {
             <p className="moment">Changed: {moment(job.createdAt).fromNow()}</p>
             </div>
             ))
-            :jobs.length && status==='All' ? 
+            :
+            
+            jobs.length && status==='All' ? 
             jobs.map(job => (<div key={job._id} className="job-card">
             <span className="open-delete"onClick={()=>{handleClick()
             executeScroll()
@@ -155,7 +166,15 @@ const Home = ()=> {
             <p className="moment">Status: <span className={job.status==='Green' ? "status green" : job.status==='Yellow' ? "status yellow": "status red"}>{job.status}</span></p>
             <p className="moment">Changed: {moment(job.createdAt).fromNow()}</p>
             </div>))
-            :null} 
+            :        
+            <PuffLoader
+            css={override}
+            size={250}
+            color={"#56ab2fe1"}
+            />
+            } 
+
+
             
             {userData.user===undefined && status==='All' ? alljobs.map(job => (<div key={job._id} className="job-card">
             <h3 style={{ backgroundImage:`url(${bgImage[Math.floor(Math.random() * bgImage.length)]}`}} className="job-title"><span className="job-title-rows">{job.title}</span>
@@ -174,8 +193,6 @@ const Home = ()=> {
             <p className="moment">Changed: {moment(job.createdAt).fromNow()}</p>
             </div>))
             :null}
-
-            
             </div>
             <Modal class={modaltoggle} setModaltoggle={setModaltoggle} id={id} upd={upd}/>
             <Modal2 class={modaltoggle2} setModaltoggle={setModaltoggle2} id={id} />

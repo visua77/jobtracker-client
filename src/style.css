@@ -57,6 +57,7 @@ li:hover {
 .li-active {
     color:white;
     background-color: rgba(86, 171, 47, 0.6);
+    
 }
 
 i {
@@ -103,7 +104,7 @@ input[type=email],input[type=password],input[type=text] {
     border-radius: 8px;
 }
 
-input[type=email],input[type=password],input.input-upd[type=text] {
+input.input-upd[type=email],input.input-upd[type=password],input.input-upd[type=text] {
     display:block;
     font-size: 1.4rem;
     padding:.3rem;

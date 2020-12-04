@@ -51,7 +51,7 @@ export const Modal = (props) => {
                 <option value="Red">Red</option>
             </select>
             <input type="submit" value="Update post"></input>
-            </form>
+        </form>
         
         </div>
         </div>
