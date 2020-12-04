@@ -26,7 +26,9 @@ const Home = ()=> {
 
     const { setUserData, userData } = useContext(UserContext)
     const { navLinks, setNavLinks } = useContext(NavLinks)
+    
     setNavLinks('All')
+    
     const [jobs, setJobs] = useState([])
     const [alljobs, setAllJobs] = useState([])
     const [id, setId] = useState()
@@ -39,10 +41,12 @@ const Home = ()=> {
     
     const[modaltoggle, setModaltoggle] = useState(false)
     const[modaltoggle2, setModaltoggle2] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     
     //console.log('our id is:',id)
-    console.log('our updateObj:',upd)
+    //console.log('our updateObj:',upd)
     //console.log("avatar:",userData.user.avatar)
+    console.log('loading', isLoading)
 
       useEffect(()=>{
         const getData = async ()=> {
@@ -55,7 +59,7 @@ const Home = ()=> {
         })
         .then(res => res.json())
         .then(data => setJobs(data))
-        
+        setIsLoading(false)
     }
     getData()
 
@@ -73,7 +77,7 @@ const Home = ()=> {
         })
         .then(res => res.json())
         .then(data => setAllJobs(data))
-        
+        setIsLoading(false)
     }
     getData2()
 
@@ -84,7 +88,7 @@ const Home = ()=> {
     },[status])
 
 
-    console.log(userData)
+    
     
      const handleModal = () => {
         setModaltoggle(prev => !prev )
@@ -127,6 +131,13 @@ const Home = ()=> {
            {/* {jobs.length ? jobs.filter(item => (item.status===status)).map(item => (<p>{item.status}</p>)):null} */}
 
             
+            {isLoading===true ?
+            <PuffLoader
+            css={override}
+            size={250}
+            color={"#56ab2fe1"}
+            />:null}
+
             {userData && jobs.length && status!='All' ? 
             jobs.filter(item =>(item.status===status)).map(job => (<div key={job._id} className="job-card">
             <span className="open-delete"onClick={()=>{handleClick()
@@ -166,12 +177,8 @@ const Home = ()=> {
             <p className="moment">Status: <span className={job.status==='Green' ? "status green" : job.status==='Yellow' ? "status yellow": "status red"}>{job.status}</span></p>
             <p className="moment">Changed: {moment(job.createdAt).fromNow()}</p>
             </div>))
-            :        
-            <PuffLoader
-            css={override}
-            size={250}
-            color={"#56ab2fe1"}
-            />
+            :  null      
+
             } 
 
 
