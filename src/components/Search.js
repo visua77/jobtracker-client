@@ -1,9 +1,18 @@
 import React,{useEffect,useState} from 'react'
+import PuffLoader from "react-spinners/PuffLoader"
+import { css } from "@emotion/core"
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-top:2rem;
+`;
 
 const Search = ()=> {
     const [searchres,setSearchRes] = useState([])
     const [renderflag,setRenderFlag] = useState(false)
     const [query,setQuery] = useState('')
+    const [isLoading, setIsLoading] = useState(true)
     const api_key= 'YidVXHgwYkwiXHhlYlxucTc1XHgxNVx4ZDJoXHgxMSpceDlhXHg5ZVx4YWF3aFx4YmMn'
 
 useEffect(()=>{
@@ -18,6 +27,7 @@ useEffect(()=>{
     .then(data => setSearchRes(data))
     
     setRenderFlag(true)
+    setIsLoading(false)
     }
     
     apiCall()
@@ -33,6 +43,8 @@ const handleSubmit = (e)=> {
     })
     .then(res => res.json())
     .then(data => setSearchRes(data))
+
+    setIsLoading(false)
 }
 
     return(
@@ -43,6 +55,13 @@ const handleSubmit = (e)=> {
             <input type="text"placeholder="Type something..."onChange={(e)=>setQuery(e.target.value)}></input>
             
         </form>
+
+        {isLoading===true ?
+            <PuffLoader
+            css={override}
+            size={250}
+            color={"#56ab2fe1"}
+            />:null}
 
 
         {renderflag ? <>{searchres.hits.map(search => (
