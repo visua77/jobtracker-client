@@ -19,11 +19,7 @@ const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 const Home = ()=> {
 
     const [bgImage, setBgImage] = useState(['https://jobtracker-react-87a5a2.netlify.app/img/1.jpg','https://jobtracker-react-87a5a2.netlify.app/img/2.jpg','https://jobtracker-react-87a5a2.netlify.app/img/3.jpg','https://jobtracker-react-87a5a2.netlify.app/img/4.jpg','https://jobtracker-react-87a5a2.netlify.app/img/5.jpg','https://jobtracker-react-87a5a2.netlify.app/img/6.jpg','https://jobtracker-react-87a5a2.netlify.app/img/7.jpg','https://jobtracker-react-87a5a2.netlify.app/img/8.jpg','https://jobtracker-react-87a5a2.netlify.app/img/9.jpg','https://jobtracker-react-87a5a2.netlify.app/img/10.jpg','https://jobtracker-react-87a5a2.netlify.app/img/11.jpg'])
-
     const [status, setStatus] = useState('All')
-    
-    
-
     const { setUserData, userData } = useContext(UserContext)
     const { navLinks, setNavLinks } = useContext(NavLinks)
     
@@ -43,11 +39,6 @@ const Home = ()=> {
     const[modaltoggle2, setModaltoggle2] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     
-    //console.log('our id is:',id)
-    //console.log('our updateObj:',upd)
-    //console.log("avatar:",userData.user.avatar)
-    console.log('loading', isLoading)
-
       useEffect(()=>{
         const getData = async ()=> {
             
@@ -87,10 +78,8 @@ const Home = ()=> {
     
     },[status])
 
-
     
-    
-     const handleModal = () => {
+    const handleModal = () => {
         setModaltoggle(prev => !prev )
         console.log('toggle is',modaltoggle)
         
@@ -106,12 +95,6 @@ const Home = ()=> {
     const executeScroll = () => scrollToRef(myRef)
 
     
- /*    const filterData = filtereddata.filter((item) =>{
-        return item.status.includes('Green')
-    })
-    setFilteredData(filterData)
-    //console.log(filterData) */
-
     return(
         <div className="home"ref={myRef}>
             <div>{userData.user ? <h2>Your collection of jobs:</h2> : <h2>Home</h2>}
@@ -130,7 +113,7 @@ const Home = ()=> {
             <p className="ninety">Filter by status: {status}</p>
            {/* {jobs.length ? jobs.filter(item => (item.status===status)).map(item => (<p>{item.status}</p>)):null} */}
 
-            
+            {/* Loadingspinner */}
             {isLoading===true ?
             <PuffLoader
             css={override}
@@ -140,11 +123,13 @@ const Home = ()=> {
 
             {userData && jobs.length && status!='All' ? 
             jobs.filter(item =>(item.status===status)).map(job => (<div key={job._id} className="job-card">
-            <span className="open-delete"onClick={()=>{handleClick()
+            <span className="open-delete"onClick={()=>{
+            handleClick()
             executeScroll()
             setId(job._id)}}>X</span>
             <h3 style={{ backgroundImage:`url(${bgImage[Math.floor(Math.random() * bgImage.length)]}`}} className="job-title"><span className="job-title-rows">{job.title}</span>
-            <span className="dots"onClick={()=>{handleModal()
+            <span className="dots"onClick={()=>{
+            handleModal()
             executeScroll()
             setUpd({
                 title:job.title, 
@@ -161,11 +146,13 @@ const Home = ()=> {
             
             jobs.length && status==='All' ? 
             jobs.map(job => (<div key={job._id} className="job-card">
-            <span className="open-delete"onClick={()=>{handleClick()
+            <span className="open-delete"onClick={()=>{
+            handleClick()
             executeScroll()
             setId(job._id)}}>X</span> 
             <h3 style={{ backgroundImage:`url(${bgImage[Math.floor(Math.random() * bgImage.length)]}`}} className="job-title"><span className="job-title-rows">{job.title}</span>
-            <span className="dots"onClick={()=>{handleModal()
+            <span className="dots"onClick={()=>{
+            handleModal()
             executeScroll()
             setUpd({
                 title:job.title, 
@@ -177,12 +164,10 @@ const Home = ()=> {
             <p className="moment">Status: <span className={job.status==='Green' ? "status green" : job.status==='Yellow' ? "status yellow": "status red"}>{job.status}</span></p>
             <p className="moment">Changed: {moment(job.createdAt).fromNow()}</p>
             </div>))
-            :  null      
-
+            :  null
             } 
 
 
-            
             {userData.user===undefined && status==='All' ? alljobs.map(job => (<div key={job._id} className="job-card">
             <h3 style={{ backgroundImage:`url(${bgImage[Math.floor(Math.random() * bgImage.length)]}`}} className="job-title"><span className="job-title-rows">{job.title}</span>
             </h3>
@@ -200,19 +185,17 @@ const Home = ()=> {
             <p className="moment">Changed: {moment(job.createdAt).fromNow()}</p>
             </div>))
             :null}
-            </div>
+        </div>
             <Modal class={modaltoggle} setModaltoggle={setModaltoggle} id={id} upd={upd}/>
             <Modal2 class={modaltoggle2} setModaltoggle={setModaltoggle2} id={id} />
         </div>
     )
 
-    
 }
-
 
 export default Home
 
 
 
-//setId(job._id)
+
 
