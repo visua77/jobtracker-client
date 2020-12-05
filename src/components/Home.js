@@ -39,7 +39,6 @@ const Home = ()=> {
     const[modaltoggle2, setModaltoggle2] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
 
-    console.log(userData.user)
     
       useEffect(()=>{
         const getData = async ()=> {
