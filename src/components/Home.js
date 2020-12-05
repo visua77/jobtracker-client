@@ -38,10 +38,12 @@ const Home = ()=> {
     const[modaltoggle, setModaltoggle] = useState(false)
     const[modaltoggle2, setModaltoggle2] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
+
+    console.log(userData.user)
     
       useEffect(()=>{
         const getData = async ()=> {
-            
+        if (userData.user){    
         await fetch('https://jobtracker77.herokuapp.com/api/users/jobs',{
 
             headers: {
@@ -51,6 +53,7 @@ const Home = ()=> {
         .then(res => res.json())
         .then(data => setJobs(data))
         setIsLoading(false)
+        }
     }
     getData()
 
