@@ -52,7 +52,7 @@ useEffect(()=>{
             token,
             user:userRes.data
         })    
-        console.log(userRes.data)
+        //console.log(userRes.data)
         }  
     }
 
