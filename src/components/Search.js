@@ -31,7 +31,7 @@ useEffect(()=>{
     }
     
     apiCall()
-    console.log(searchres)   
+    //console.log(searchres)   
 },[renderflag])
 
 
@@ -65,8 +65,8 @@ const handleSubmit = (e)=> {
 
 
         {renderflag ? <>{searchres.hits.map(search => (
-        <div className="job-search-card">
-            <p className="search-res"><span className="search-headline">{search.headline}</span><span className="search-comp">{search.employer.name}</span>{search.logo_url ? <span><img src={search.logo_url} className="search-img"/></span>:null}</p>
+        <div className="job-search-card"key={search.id}>
+            <p className="search-res"><span className="search-headline">{search.headline}</span><span className="search-comp">{search.employer.name}</span>{search.logo_url ? <span><img src={search.logo_url} className="search-img" alt={search.id}/></span>:null}</p>
             <p className="json-p">{search.description.text}</p>
             <p className="apply"><span>Apply for this job: {search.last_publication_date}</span><span><a href={search.webpage_url}  className="external-link" target="new">External link &gt;&gt;</a></span></p>
         </div>
