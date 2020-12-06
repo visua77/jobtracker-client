@@ -29,9 +29,9 @@ const Home = ()=> {
     const [alljobs, setAllJobs] = useState([])
     const [id, setId] = useState()
     const [upd, setUpd] = useState({
-        title:undefined, 
-        description:undefined, 
-        status:undefined
+        title:'', 
+        description:'', 
+        status:''
     })
     const [filtereddata, setFilteredData]= useState([{status:'Green'},{status:'Red'},{status:'Green'},{status:'Yellow'},{status:'Red'}])
     
@@ -101,7 +101,7 @@ const Home = ()=> {
         <div className="home"ref={myRef}>
             <div>{userData.user ? <h2>Your collection of jobs:</h2> : <h2>Home</h2>}
             {userData.user ? <p className="welcome-user"><span>Welcome back: <strong>{userData.user.name}!</strong></span>
-            <span className="no-jobs">you have <strong>{jobs.length} jobs</strong> in your collection!</span>{userData.user.avatar ?    <Link to="/account"><img src={userData.user.avatar} className="avatar"onClick={()=>setNavLinks('Acc')} /></Link> : <Link    to="/account"><span className="user-wrapper"><i className="fas fa-user"onClick={()=>setNavLinks('Acc')}></i></span></  Link>}</p> : null}
+            <span className="no-jobs">you have <strong>{jobs.length} jobs</strong> in your collection!</span>{userData.user.avatar ?    <Link to="/account"><img src={userData.user.avatar} className="avatar"onClick={()=>setNavLinks('Acc')} alt="Avatar" /></Link> : <Link    to="/account"><span className="user-wrapper"><i className="fas fa-user"onClick={()=>setNavLinks('Acc')}></i></span></  Link>}</p> : null}
             </div>
 
        
@@ -123,7 +123,7 @@ const Home = ()=> {
             color={"#56ab2fe1"}
             />:null}
 
-            {userData && jobs.length && status!='All' ? 
+            {userData && jobs.length && status!=='All' ? 
             jobs.filter(item =>(item.status===status)).map(job => (<div key={job._id} className="job-card">
             <span className="open-delete"onClick={()=>{
             handleClick()
@@ -179,7 +179,7 @@ const Home = ()=> {
             </div>))
             :null}
 
-            {userData.user===undefined && status!='All' ? alljobs.filter(item =>(item.status===status)).map(job => (<div key={job._id} className="job-card">
+            {userData.user===undefined && status!=='All' ? alljobs.filter(item =>(item.status===status)).map(job => (<div key={job._id} className="job-card">
             <h3 style={{ backgroundImage:`url(${bgImage[Math.floor(Math.random() * bgImage.length)]}`}} className="job-title"><span className="job-title-rows">{job.title}</span>
             </h3>
             <p className="description">{job.description}</p>
