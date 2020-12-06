@@ -83,13 +83,13 @@ const Home = ()=> {
     
     const handleModal = () => {
         setModaltoggle(prev => !prev )
-        console.log('toggle is',modaltoggle)
+        //console.log('toggle is',modaltoggle)
         
     }
 
     const handleClick = () => {
         setModaltoggle2(prev => !prev )
-        console.log('toggle is',modaltoggle)
+        //console.log('toggle is',modaltoggle)
         
     }
 
