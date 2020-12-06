@@ -23,7 +23,7 @@ const Home = ()=> {
     const { setUserData, userData } = useContext(UserContext)
     const { navLinks, setNavLinks } = useContext(NavLinks)
     
-    setNavLinks('All')
+   
     
     const [jobs, setJobs] = useState([])
     const [alljobs, setAllJobs] = useState([])
@@ -38,6 +38,13 @@ const Home = ()=> {
     const[modaltoggle, setModaltoggle] = useState(false)
     const[modaltoggle2, setModaltoggle2] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
+
+
+
+    useEffect(()=> {
+        setNavLinks('All')
+    },[])
+
 
     
       useEffect(()=>{
