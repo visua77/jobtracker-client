@@ -5,10 +5,6 @@ export const Modal = (props) => {
 
     const { userData } = useContext(UserContext)
 
- /*    const [title, setTitle] = useState()
-    const [description, setDescription] = useState()
-    const [status, setStatus] = useState('Green') */
-
     const handleClose = () => {
         props.setModaltoggle(false)
     }
@@ -16,13 +12,12 @@ export const Modal = (props) => {
     const handleSubmit = async (e)=> {
         e.preventDefault()
 
-
         const title = props.upd.title
         const description = props.upd.description
         const status = props.upd.status
 
         const postObj = {title, description, status}
-        console.log('testobject',postObj)
+        //console.log('testobject',postObj)
         
         await fetch(`https://jobtracker77.herokuapp.com/api/users/jobs/${props.id}`,{
             method: 'PATCH',
@@ -33,11 +28,9 @@ export const Modal = (props) => {
         
         props.setModaltoggle(false)
         
-        
-        
     }
 
-    console.log('description here',props.upd)
+    //console.log('description here',props.upd)
 
     return(
         <div className={props.class ? "modal-active" : "modal"}>
