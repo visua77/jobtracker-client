@@ -188,7 +188,7 @@ const Home = ()=> {
             </div>))
             :null}
         </div>
-            <Modal class={modaltoggle} setModaltoggle={setModaltoggle} id={id} upd={upd}/>
+            <Modal class={modaltoggle} setModaltoggle={setModaltoggle} id={id} upd={upd} setUpd={setUpd} />
             <Modal2 class={modaltoggle2} setModaltoggle={setModaltoggle2} id={id} />
         </div>
     )
