@@ -1,4 +1,5 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useRef} from 'react'
+import ModalSavePost from './ModalSavePost'
 import PuffLoader from "react-spinners/PuffLoader"
 import { css } from "@emotion/core"
 
@@ -6,13 +7,21 @@ const override = css`
   display: block;
   margin: 0 auto;
   margin-top:2rem;
-`;
+`
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)  
 
 const Search = ()=> {
     const [searchres,setSearchRes] = useState([])
     const [renderflag,setRenderFlag] = useState(false)
     const [query,setQuery] = useState('')
     const [isLoading, setIsLoading] = useState(true)
+    const[modaltoggle, setModaltoggle] = useState(false)
+    const [post, setPost] = useState({
+        title:'',
+        description:'',
+        status:''
+    })
     const api_key= 'YidVXHgwYkwiXHhlYlxucTc1XHgxNVx4ZDJoXHgxMSpceDlhXHg5ZVx4YWF3aFx4YmMn'
 
 useEffect(()=>{
@@ -47,8 +56,21 @@ const handleSubmit = (e)=> {
     setIsLoading(false)
 }
 
+const handleModal = () => {
+    setModaltoggle(prev => !prev )
+    //console.log('toggle is',modaltoggle)
+    
+}
+
+//console.log(post)
+
+    const myRef = useRef(null)
+    const executeScroll = () => scrollToRef(myRef)
+
     return(
-        <div>
+        <div ref={myRef}>
+        <ModalSavePost class={modaltoggle} setModaltoggle={setModaltoggle} post={post} setPost={setPost} />
+        
         <h2>Search jobs using the jobtechdev API</h2>
         
         <form onSubmit={handleSubmit}>
@@ -68,10 +90,17 @@ const handleSubmit = (e)=> {
         <div className="job-search-card"key={search.id}>
             <p className="search-res"><span className="search-headline">{search.headline}</span><span className="search-comp">{search.employer.name}</span>{search.logo_url ? <span><img src={search.logo_url} className="search-img" alt={search.id}/></span>:null}</p>
             <p className="json-p">{search.description.text}</p>
-            <p className="apply"><span>Apply for this job: {search.last_publication_date}</span><span><a href={search.webpage_url}  className="external-link" target="new">External link &gt;&gt;</a></span></p>
+            <p className="apply"><span className="span-flex"><button className="search-button" onClick={()=> {
+                setPost({
+                title:search.headline, 
+                description: search.description.text, 
+                status:'Green'
+            })
+                handleModal()
+                executeScroll()
+            }}>Save this job</button> <span className="date">{search.last_publication_date}</span></span><span><a href={search.webpage_url}  className="external-link" target="new">External link &gt;&gt;</a></span></p>
         </div>
         ))}</> : null}
-        
         
         </div>
     )

@@ -88,6 +88,42 @@ button:hover {
     background-color: rgba(0, 0, 0, .25);
 }
 
+.search-button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Montserrat, sans-serif;
+    color:rgb(148, 199, 128);
+  
+    background-color: rgba(0, 0, 0, .4);
+    border:1px solid rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    padding:1rem;
+    font-size: 1.1rem;
+    height:50px;
+    width:100%;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Montserrat, sans-serif;
+    color:rgb(188, 223, 175);
+    background-color: rgb(51, 51, 51);
+    
+    border:1px solid rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    padding:1rem;
+    font-size: 1.1rem;
+    height:50px;
+    width:100%;
+    transition: all ease-in-out .3s;
+    cursor: pointer;
+}
+
 input {
     width:100%;
     margin: auto;
@@ -243,6 +279,8 @@ p {
 
 p.description {
     font-size: 1.2rem;
+    overflow: hidden;
+    max-height: 30rem;
     
 }
 
@@ -290,6 +328,20 @@ a:hover{
 .buttons {
     display:flex;
     height:100%;
+}
+
+.span-flex{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-left: 1rem;
+    
+}
+
+.date {
+    margin:1rem;
+    font-size: .8rem;
+    color: rgb(122, 122, 122);
 }
 
 .home {
@@ -529,7 +581,19 @@ i:hover {
 }
 
 .external-link {
-    color:rgb(112, 37, 37);
+    color:rgb(156, 80, 80);
+    background-color: rgba(41, 41, 41, 0.4);
+    border:1px solid rgba(60, 112, 25, .4);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.external-link:hover {
+    color:rgb(156, 80, 80);
+    background-color: rgba(255, 255, 255, 0.4);
+    border:1px solid rgba(60, 112, 25, .4);
+    padding: 1rem;
+    border-radius: 8px;
 }
 
 
@@ -538,9 +602,9 @@ i:hover {
   display: block;/* or inline-block */
   word-wrap: break-word;
   overflow: hidden;
-  font-size: 1.2rem;
   max-height: 8.5em;
   line-height: 1.5em;
+  font-size: 1.2rem;
   padding:1rem;
   
 }
