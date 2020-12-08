@@ -94,7 +94,6 @@ button:hover {
     align-items: center;
     font-family: Montserrat, sans-serif;
     color:rgb(148, 199, 128);
-  
     background-color: rgba(0, 0, 0, .4);
     border:1px solid rgba(0, 0, 0, .2);
     border-radius: 8px;
@@ -803,6 +802,36 @@ i:hover {
 
     p.ninety {
         width:90%;
+    }
+
+    .search-button {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Montserrat, sans-serif;
+        color:rgb(148, 199, 128);
+        background-color: rgba(0, 0, 0, .4);
+        border:1px solid rgba(0, 0, 0, .2);
+        border-radius: 8px;
+        padding:1rem;
+        font-size: .8rem;
+        height:50px;
+        width:100%;
+        transition: all ease-in-out .3s;
+        cursor: pointer;
+    }
+
+    .external-link {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        color:rgb(156, 80, 80);
+        background-color: rgba(41, 41, 41, 0.4);
+        border:1px solid rgba(60, 112, 25, .4);
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: .8rem;
+        height:50px;
     }
 
    
