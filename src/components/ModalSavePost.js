@@ -51,7 +51,7 @@ export const ModalSavePost = (props) => {
         
     }
 
-    console.log('description here',error)
+    //console.log('description here',error)
 
     return(
         <div className={props.class ? "modal-active" : "modal"}>
