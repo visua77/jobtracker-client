@@ -31,7 +31,8 @@ const Home = ()=> {
     const [upd, setUpd] = useState({
         title:'', 
         description:'', 
-        status:''
+        status:'',
+        note:''
     })
     const [filtereddata, setFilteredData]= useState([{status:'Green'},{status:'Red'},{status:'Green'},{status:'Yellow'},{status:'Red'}])
     
@@ -39,6 +40,7 @@ const Home = ()=> {
     const[modaltoggle2, setModaltoggle2] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
 
+    //console.log('the note',upd.note)
 
 
     useEffect(()=> {
@@ -143,11 +145,13 @@ const Home = ()=> {
             setUpd({
                 title:job.title, 
                 description:job.description, 
-                status:job.status
+                status:job.status,
+                note: job.note
             })
             setId(job._id)}}>...</span></h3>
             <p className="description">{job.description}</p>
             <p className="moment">Status: <span className={job.status==='Green' ? "status green" : job.status==='Yellow' ? "status yellow": "status red"}>{job.status}</span></p>
+            {job.note ? <p className="note"><span className="span-note">Note:</span> {job.note}</p> :null}
             <p className="moment">Changed: {moment(job.createdAt).fromNow()}</p>
             </div>
             ))
@@ -163,14 +167,25 @@ const Home = ()=> {
             <span className="dots"onClick={()=>{
             handleModal()
             executeScroll()
-            setUpd({
+            
+            {job.note ? setUpd({
+                ...upd, 
                 title:job.title, 
                 description:job.description, 
-                status:job.status
-            })
+                status:job.status,
+                note: job.note
+            }): setUpd({
+                ...upd, 
+                title:job.title, 
+                description:job.description, 
+                status:job.status,
+                note: ''
+            })}
+            
             setId(job._id)}}>...</span></h3>
             <p className="description">{job.description}</p>
             <p className="moment">Status: <span className={job.status==='Green' ? "status green" : job.status==='Yellow' ? "status yellow": "status red"}>{job.status}</span></p>
+            {job.note ? <p className="note"><span className="span-note">Note:</span> {job.note}</p> :null}
             <p className="moment">Changed: {moment(job.createdAt).fromNow()}</p>
             </div>))
             :  null

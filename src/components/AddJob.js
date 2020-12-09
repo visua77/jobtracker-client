@@ -7,6 +7,7 @@ const AddJob = ()=> {
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
+    const [note, setNote] = useState()
     const [status, setStatus] = useState('Green')
     const [formcheck, setFormCheck] = useState(false)
     const [error, setError] = useState()
@@ -15,12 +16,12 @@ const AddJob = ()=> {
 
     const { userData } = useContext(UserContext)
 
-    //console.log(status)
+    //console.log(note)
 
     const handleSubmit = async (e)=> {
         e.preventDefault()
     
-        const postJob = {title, description, status}
+        const postJob = {title, description, status, note}
 
 
          const resJson = await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
@@ -56,17 +57,25 @@ const AddJob = ()=> {
             <h2>Add job</h2>
             {error && <ErrorMsg message={error} clearError={()=> setError(undefined)} />}
             <form onSubmit={handleSubmit}>
+            
             <label htmlFor="title">Jobtitle:</label>
             <input type="text"name="title"onChange={(e)=>setTitle(e.target.value)}></input>
+            
             <label htmlFor="description">Description:</label>
             <textarea type="text"name="description"rows="6" onChange={(e)=>setDescription(e.target.value)}></textarea>
+            
+            <label htmlFor="note">Comment:</label>
+            <input type="text"name="note"onChange={(e)=>setNote(e.target.value)}></input>
+
             <label htmlFor="status">Status:</label>
             <select name="status"onChange={(e)=>setStatus(e.target.value)}>
                 <option value="Green">Green</option>
                 <option value="Yellow">Yellow</option>
                 <option value="Red">Red</option>
             </select>
+            
             <input type="submit" value="Add new job"></input>
+
             </form>
         </div>
     )

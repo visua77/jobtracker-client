@@ -273,6 +273,32 @@ p.description {
     
 }
 
+p.note {
+    background-color: rgba(91, 149, 81, 0.4);
+    color:rgba(255, 255, 255, 0.87);
+    font-size: .9rem;
+    font-weight: 500;
+    padding:.3rem;
+    margin-top:.3rem;
+    
+}
+
+span.span-note {
+    display: inline-block;
+    background-color: rgba(26, 26, 26, 0.6);
+    color:rgba(139, 209, 126, 0.87);
+    font-size: .9rem;
+    font-weight: 300;
+    border-radius: 8px;
+    padding:.3rem;
+    
+    
+    
+    
+}
+
+
+
 p.moment {
     font-size: 1rem;
     margin-top:.5rem;

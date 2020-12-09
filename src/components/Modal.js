@@ -15,8 +15,9 @@ export const Modal = (props) => {
         const title = props.upd.title
         const description = props.upd.description
         const status = props.upd.status
+        const note = props.upd.note
 
-        const postObj = {title, description, status}
+        const postObj = {title, description, status, note}
         //console.log('testobject',postObj)
         
         await fetch(`https://jobtracker77.herokuapp.com/api/users/jobs/${props.id}`,{
@@ -57,6 +58,14 @@ export const Modal = (props) => {
                 value={props.upd.description}
                 onChange={(e)=>props.setUpd({...props.upd, description: e.target.value})}>
             </textarea>
+
+            <label htmlFor="note"><span className="white-color">Comment:</span></label>
+            <input type="text"
+                name="note"
+                className="input-upd"
+                value={props.upd.note}
+                onChange={(e)=>props.setUpd({...props.upd, note: e.target.value})}>
+            </input>
 
             <label htmlFor="status"><span className="white-color">Status:</span></label>
             <select name="status"onChange={(e)=>props.setUpd({...props.upd, status: e.target.value})}>
