@@ -74,7 +74,7 @@ const AddJob = ()=> {
                 <option value="Red">Red</option>
             </select>
             
-            <input type="submit" value="Add new job"></input>
+            <input type="submit" value="Add new job"className="submit-butt"></input>
 
             </form>
         </div>
