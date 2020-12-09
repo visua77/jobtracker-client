@@ -38,7 +38,7 @@ export const Modal = (props) => {
         <div className="update-wrapper">
         <span className="close-modal"onClick={handleClose}>X</span>
         <h2 className="update-job">Update job-post:</h2>
-    <p><span className="white-color">ID: {props.id}</span></p>
+        {/* <p><span className="white-color">ID: {props.id}</span></p> */}
         
         <form onSubmit={handleSubmit}>
             <label htmlFor="title"><span className="white-color">Jobtitle:</span></label>
