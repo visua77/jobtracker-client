@@ -40,17 +40,18 @@ export const ModalSavePost = (props) => {
             .then(res => {
                 if (res._id) {
                     setTheres(true)
+                    props.setModaltoggle(false) 
                   } else {
                     throw new Error(res.msg)
                   }
             })
             .catch(error => setError(error.toString()) ) 
         
-        props.setModaltoggle(false) 
+        
         
     }
 
-    //console.log('description here',props.upd)
+    console.log('description here',error)
 
     return(
         <div className={props.class ? "modal-active" : "modal"}>
