@@ -108,7 +108,7 @@ const Home = ()=> {
     
     return(
         <div className="home"ref={myRef}>
-            <div>{userData.user ? <h2>Your collection of jobs:</h2> : <h2>Home</h2>}
+            <div>{userData.user ? <h2>Your collection of jobs: 😀</h2> : <h2>Home</h2>}
             {userData.user ? <p className="welcome-user"><span>Welcome back: <strong>{userData.user.name}!</strong></span>
             <span className="no-jobs">you have <strong>{jobs.length} jobs</strong> in your collection!</span>{userData.user.avatar ?    <Link to="/account"><img src={userData.user.avatar} className="avatar"onClick={()=>setNavLinks('Acc')} alt="Avatar" /></Link> : <Link    to="/account"><span className="user-wrapper"><i className="fas fa-user"onClick={()=>setNavLinks('Acc')}></i></span></  Link>}</p> : null}
             </div>

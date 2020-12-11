@@ -1,5 +1,6 @@
 import React,{useEffect,useState,useRef} from 'react'
 import ModalSavePost from './ModalSavePost'
+import Pagination from './Pagination'
 import PuffLoader from "react-spinners/PuffLoader"
 import { css } from "@emotion/core"
 
@@ -23,12 +24,17 @@ const Search = ()=> {
         status:''
     })
     const api_key= 'YidVXHgwYkwiXHhlYlxucTc1XHgxNVx4ZDJoXHgxMSpceDlhXHg5ZVx4YWF3aFx4YmMn'
+    const [postsPerPage, setPostsPerPage]= useState(10)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPosts, setCurrentPosts] = useState([])
+    const [renderSplice, setRenderSplice] = useState(false)
+  
 
 useEffect(()=>{
     
     const apiCall = async ()=>{
     
-    await fetch('https://jobsearch.api.jobtechdev.se/search?q=Frontend',{
+    await fetch('https://jobsearch.api.jobtechdev.se/search?q=Frontend&limit=64',{
         headers:{'api-key': api_key,
          'accept': 'application/json'}
     })
@@ -62,7 +68,29 @@ const handleModal = () => {
     
 }
 
-//console.log(post)
+    useEffect(()=>{
+
+        const currPosts = async () =>{
+
+        const indexOfLastPost = currentPage * postsPerPage
+        const indexOfFirstPost = indexOfLastPost - postsPerPage
+        
+        if(renderflag){
+        setCurrentPosts(searchres.hits.slice(indexOfFirstPost, indexOfLastPost))
+        
+        setRenderSplice(true)
+        //console.log('currentposts are',currentPosts,renderSplice)
+        }
+        }
+        
+        currPosts()
+
+    },[renderflag,renderSplice, currentPage, postsPerPage, searchres])
+
+    const paginate = (number)=> {
+        setCurrentPage(number)
+    }
+    
 
     const myRef = useRef(null)
     const executeScroll = () => scrollToRef(myRef)
@@ -70,6 +98,8 @@ const handleModal = () => {
     return(
         <div ref={myRef}>
         <ModalSavePost class={modaltoggle} setModaltoggle={setModaltoggle} post={post} setPost={setPost} />
+
+        {renderflag ? <Pagination postsPerPage={postsPerPage} totalPosts={searchres.hits.length}  paginate={paginate} /> : null}
         
         <h2>Search jobs using the jobtechdev API</h2>
         
@@ -86,7 +116,7 @@ const handleModal = () => {
             />:null}
 
 
-        {renderflag ? <>{searchres.hits.map(search => (
+        {renderSplice ? <>{currentPosts.map(search => (
         <div className="job-search-card"key={search.id}>
             <p className="search-res"><span className="search-headline">{search.headline}</span><span className="search-comp">{search.employer.name}</span>{search.logo_url ? <span><img src={search.logo_url} className="search-img" alt={search.id}/></span>:null}</p>
             <p className="json-p">{search.description.text}</p>
@@ -101,6 +131,8 @@ const handleModal = () => {
             }}>Save this job</button> <span className="date">{search.last_publication_date}</span></span><span><a href={search.webpage_url}  className="external-link" target="new">External link &gt;&gt;</a></span></p>
         </div>
         ))}</> : null}
+
+        
         
         </div>
     )
