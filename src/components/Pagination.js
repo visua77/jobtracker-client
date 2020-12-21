@@ -1,21 +1,20 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-const Pagination = (props)=> {
+const Pagination = ({totalPages, handlePagClick, renderflag})=> {
+    
+    let pages 
 
-    const pageNumbers = []
-    for(let i = 1; i <= Math.ceil(props.totalPosts / props.postsPerPage); i++){
-        pageNumbers.push(i)
+    if (renderflag) {
+    pages = [...Array(totalPages).keys()].map(num => num+1)
+    console.log('from pag',totalPages)
     }
-    //console.log('totalposts',props.totalPosts)
-    //console.log('our numbers', pageNumbers)
 
     return(
         <nav className="pagination">
-            <ul>
-                {pageNumbers.map(no => (
-                    <a href="#" key={no} onClick={()=>props.paginate(no)}><li className="pagination-no">{no}</li></a>
-                ))}
-            </ul></nav>
+            {pages.map(page =>(
+                <button key={page} onClick={()=> handlePagClick(page)}>{page}</button>
+            ))}
+        </nav>
     )
 }
 
