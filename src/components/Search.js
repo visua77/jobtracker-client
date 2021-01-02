@@ -32,18 +32,16 @@ const Search = () => {
     const [totalpages, setTotalPages] = useState(0)
 
     const [sortedPosts, setSortedPosts] = useState([])
+    const [sortedPosts2, setSortedPosts2] = useState([])
 
     const startIndex = (page - 1) * PAGELIMIT
     //console.log(startIndex, PAGELIMIT)
+    //console.log('sorted posts', sortedPosts)
 
-
-
-    console.log('sorted posts', sortedPosts)
 
     useEffect(() => {
 
         const apiCall = async () => {
-
 
             await fetch(`https://jobsearch.api.jobtechdev.se/search?q=Frontend&limit=100`, {
                 headers: {
@@ -57,43 +55,46 @@ const Search = () => {
             setRenderFlag(true)
 
             if (renderflag) {
-                console.log(posts.hits.length)
-
-                if (renderflag) {
-                    setSortedPosts(posts.hits.slice(startIndex, startIndex + PAGELIMIT))
-                }
-
+                //console.log(posts.hits.length)
+                setSortedPosts(posts.hits.slice(startIndex, startIndex + PAGELIMIT))
                 setTotalPages(Math.ceil(posts.hits.length / PAGELIMIT))
-                console.log('total of pages', totalpages)
+                //console.log('total of pages', totalpages)
             }
-
             setIsLoading(false)
-
         }
 
         apiCall()
 
     }, [renderflag, totalpages])
 
-    const handleSubmit = (e) => {
+
+    //Handle when user click a pagination no, need to understand what happens here
+    const handlePagClick = (num) => {
+        setPage(num)
+        setSortedPosts(posts.hits.slice(startIndex, startIndex + PAGELIMIT))
+        console.log(num, 'pagClick fired!')
+    }
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        fetch(`https://jobsearch.api.jobtechdev.se/search?q=${query}`, {
+        await fetch(`https://jobsearch.api.jobtechdev.se/search?q=${query}&limit=100`, {
             headers: {
                 'api-key': api_key,
                 'accept': 'application/json'
             }
         })
             .then(res => res.json())
-            .then(data => setSortedPosts(data))
+            .then(data => setSortedPosts(data.hits))
 
-        console.log('effect', sortedPosts)
+        if (renderflag) {
+            console.log('handleSubmit', sortedPosts2)
+        }
 
 
         setIsLoading(false)
-        console.log('our posts', posts.hits.length)
+        //console.log('our posts', posts.hits.length)
     }
-
-
 
     const handleModal = () => {
         setModaltoggle(prev => !prev)
@@ -101,19 +102,14 @@ const Search = () => {
 
     }
 
-    const handlePagClick = (num) => {
-        setPage(num)
-        console.log(num, 'pagClick fired!')
-
-    }
-
     const myRef = useRef(null)
     const executeScroll = () => scrollToRef(myRef)
+
+    console.log('handleSubmit', sortedPosts2)
 
     return (
         <div ref={myRef}>
             <ModalSavePost class={modaltoggle} setModaltoggle={setModaltoggle} post={post} setPost={setPost} />
-
 
             {renderflag ? <Pagination totalPages={totalpages} handlePagClick={handlePagClick} renderflag={renderflag} /> : null}
 
@@ -147,9 +143,6 @@ const Search = () => {
                     }}>Save this job</button> <span className="date">{search.last_publication_date}</span></span><span><a href={search.webpage_url} className="external-link" target="new">External link &gt;&gt;</a></span></p>
                 </div>
             ))}</> : null}
-
-
-
         </div>
     )
 }

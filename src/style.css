@@ -1,122 +1,119 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 * {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body,textarea, input {
+body, textarea, input {
     font-family: Montserrat, sans-serif;
-    
 }
 
 body {
-    background: #FFEFBA;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #FFEFBA;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 header {
-height:70px;
-background: #C6FFDD;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-display:flex;
-justify-content: space-between;
-align-items: center;
+    height: 70px;
+    background: #C6FFDD;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav {
-    height:80px;
-    display:flex;
+    height: 80px;
+    display: flex;
     align-items: center;
     background-color: rgba(61, 124, 61, .3);
 }
 
 nav.pagination {
-    
-    height:40px;
-    display:flex;
+    height: 40px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    
     background-color: rgba(33, 66, 33, 0.3);
 }
 
 .burger {
-    display:none;
+    display: none;
 }
 
-ul{
-    display:flex;
+ul {
+    display: flex;
     align-items: center;
-    height:40px;
-    
-    padding:0;
-    margin:0;
+    height: 40px;
+    padding: 0;
+    margin: 0;
 }
 
 li {
-    display:flex;
+    display: flex;
     align-items: center;
-    height:40px;
-    margin:0;
-    padding:1rem;
-    margin-right:1rem;
-    margin-left:1rem;
+    height: 40px;
+    margin: 0;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     font-weight: 700;
     transition: all ease-in-out .3s;
     cursor: pointer;
-    
 }
 
 li.pagination-no {
-    display:flex;
+    display: flex;
     align-items: center;
-    height:40px;
-    margin:0;
-    margin-right:1rem;
-    margin-left:1rem;
+    height: 40px;
+    margin: 0;
+    margin-right: 1rem;
+    margin-left: 1rem;
     font-weight: 700;
     transition: all ease-in-out .3s;
     cursor: pointer;
-    
 }
 
 li:hover {
-    color:rgb(51, 51, 51);
+    color: rgb(51, 51, 51);
     background-color: rgba(245, 255, 240, 0.6);
-    
 }
 
 .li-active {
-    color:white;
+    color: white;
     background-color: rgba(86, 171, 47, 0.6);
-    
 }
 
 i {
-    margin:1rem;
+    margin: 1rem;
     font-size: 2rem;
- 
 }
 
 button {
     font-family: Montserrat, sans-serif;
-    color:white;
+    color: white;
     background-color: gray;
     background-color: rgba(0, 0, 0, .4);
-    border:1px solid rgba(0, 0, 0, .2);
-    padding:1rem;
+    border: 1px solid rgba(0, 0, 0, .2);
+    padding: 1rem;
     font-size: 1.1rem;
-    width:120px;
+    width: 120px;
     transition: all ease-in-out .3s;
     cursor: pointer;
 }
 
 button:focus {
-    border:none;
+    border: none;
     outline: none;
 }
 
@@ -125,282 +122,268 @@ button:hover {
 }
 
 .search-button {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-family: Montserrat, sans-serif;
-    color:rgb(188, 223, 175);
+    color: rgb(188, 223, 175);
     background-color: rgb(51, 51, 51);
-    border:1px solid rgba(0, 0, 0, .2);
+    border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 8px;
-    padding:1rem;
+    padding: 1rem;
     font-size: 1.1rem;
-    height:50px;
-    width:100%;
+    height: 50px;
+    width: 100%;
     transition: all ease-in-out .3s;
     cursor: pointer;
 }
 
 .search-button:hover {
-   
-    color:rgb(229, 255, 220);
+    color: rgb(229, 255, 220);
     background-color: rgb(114, 153, 91);
-
 }
 
 input {
-    width:100%;
+    width: 100%;
     margin: auto;
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
 }
 
-input[type=email],input[type=password],input[type=text] {
-    display:block;
+input[type=email], input[type=password], input[type=text] {
+    display: block;
     font-size: 1.4rem;
-    padding:.3rem;
-    max-width:900px;
+    padding: .3rem;
+    max-width: 900px;
     background-color: rgba(200, 200, 200, 0.5);
-    border:1px solid rgba(0, 0, 0, .4);
+    border: 1px solid rgba(0, 0, 0, .4);
     border-radius: 8px;
 }
 
-input.input-upd[type=email],input.input-upd[type=password],input.input-upd[type=text] {
-    display:block;
+input.input-upd[type=email], input.input-upd[type=password], input.input-upd[type=text] {
+    display: block;
     font-size: 1.4rem;
-    padding:.3rem;
-    max-width:900px;
-    color:white;
+    padding: .3rem;
+    max-width: 900px;
+    color: white;
     background-color: rgba(255, 123, 123, 0.5);
-    border:1px solid rgba(0, 0, 0, .4);
+    border: 1px solid rgba(0, 0, 0, .4);
     border-radius: 8px;
 }
 
 textarea {
-    width:100%;
+    width: 100%;
     margin: auto;
-    margin-bottom:1rem;
-    display:block;
+    margin-bottom: 1rem;
+    display: block;
     font-size: 1.4rem;
-    padding:.3rem;
-    max-width:900px;
+    padding: .3rem;
+    max-width: 900px;
     background-color: rgba(200, 200, 200, 0.5);
-    border:1px solid rgba(0, 0, 0, .4);
+    border: 1px solid rgba(0, 0, 0, .4);
     border-radius: 8px;
 }
 
 textarea.input-upd {
-    width:100%;
+    width: 100%;
     margin: auto;
-    margin-bottom:1rem;
-    display:block;
+    margin-bottom: 1rem;
+    display: block;
     font-size: 1.4rem;
-    padding:.3rem;
-    max-width:900px;
-    color:white;
+    padding: .3rem;
+    max-width: 900px;
+    color: white;
     background-color: rgba(255, 123, 123, 0.5);
-    border:1px solid rgba(0, 0, 0, .4);
+    border: 1px solid rgba(0, 0, 0, .4);
     border-radius: 8px;
 }
 
 select {
-    width:100%;
+    width: 100%;
     margin: auto;
-    margin-bottom:1rem;
-    display:block;
+    margin-bottom: 1rem;
+    display: block;
     font-size: 1.4rem;
-    padding:.3rem;
-    max-width:900px;
+    padding: .3rem;
+    max-width: 900px;
     background-color: silver;
-    border:1px solid rgba(0, 0, 0, .4);
+    border: 1px solid rgba(0, 0, 0, .4);
     border-radius: 8px;
 }
 
 label {
-    display:block;
-    margin:auto;
+    display: block;
+    margin: auto;
     font-size: 1.2rem;
-    padding:.3rem;
-    width:100%;
-    max-width:900px;
-    
+    padding: .3rem;
+    width: 100%;
+    max-width: 900px;
 }
 
-input[type=submit]{
-    display:block;
+input[type=submit] {
+    display: block;
     font-size: 1.3rem;
-    margin-top:2rem;
-    padding:.4rem;
-    max-width:900px;
+    margin-top: 2rem;
+    padding: .4rem;
+    max-width: 900px;
     background-color: rgb(88, 88, 88);
-    color:rgb(231, 231, 231);
-    border:1px solid rgba(0, 0, 0, .4);
+    color: rgb(231, 231, 231);
+    border: 1px solid rgba(0, 0, 0, .4);
     border-radius: 6px;
     transition: all ease-in-out .3s;
     cursor: pointer;
 }
 
-input[type=submit]:hover{
+input[type=submit]:hover {
     background-color: rgba(40, 83, 29, 0.6);
-    color:rgb(31, 31, 31);
+    color: rgb(31, 31, 31);
 }
 
-input:focus,textarea:focus,select:focus {
-    border:none;
-    outline:none;
+input:focus, textarea:focus, select:focus {
+    border: none;
+    outline: none;
     box-shadow: 0 0 8px rgba(0, 189, 177, 0.6);
 }
 
 .filebase {
-    width:100%;
+    width: 100%;
     margin: auto;
-    margin-bottom:1rem;
-    display:block;
+    margin-bottom: 1rem;
+    display: block;
     font-size: 1.4rem;
-    padding:.3rem;
-    max-width:900px;
+    padding: .3rem;
+    max-width: 900px;
     background-color: silver;
-    border:1px solid rgba(0, 0, 0, .4);
+    border: 1px solid rgba(0, 0, 0, .4);
     border-radius: 8px;
 }
-
-
 
 h1 {
     font-size: 2.2rem;
     padding: 2rem;
     transition: all ease-in-out .3s;
-    }
+}
 
 h1:hover {
-    color:rgb(136, 136, 136);
-    }
-
+    color: rgb(136, 136, 136);
+}
 
 h2 {
     font-size: 2rem;
     padding: 2rem 0 2rem;
     margin: auto;
-    max-width: 900px;   
-    width:100%;
+    max-width: 900px;
+    width: 100%;
 }
 
 h3 {
     font-size: 1.5rem;
-    padding:.5rem;
-    }
+    padding: .5rem;
+}
 
 p {
     display: block;
     background-color: rgba(0, 0, 0, .1);
     font-size: 1.5rem;
     max-width: 900px;
-    width:100%;
-    margin:auto;
-    padding:.7rem;
+    width: 100%;
+    margin: auto;
+    padding: .7rem;
     border-radius: 8px;
-    border-bottom:1px solid silver;
+    border-bottom: 1px solid silver;
 }
 
 p.description {
     font-size: 1.2rem;
     overflow: hidden;
     max-height: 30rem;
-    padding:1.2rem;
-    
+    padding: 1.2rem;
 }
 
 p.note {
     background-color: rgba(91, 149, 81, 0.4);
-    color:rgba(255, 255, 255, 0.87);
+    color: rgba(255, 255, 255, 0.87);
     font-size: .9rem;
     font-weight: 500;
-    padding:.3rem;
-    margin-top:.3rem;
-    
+    padding: .3rem;
+    margin-top: .3rem;
 }
 
 span.span-note {
     display: inline-block;
     background-color: rgba(26, 26, 26, 0.6);
-    color:rgba(139, 209, 126, 0.87);
+    color: rgba(139, 209, 126, 0.87);
     font-size: .9rem;
     font-weight: 300;
     border-radius: 8px;
-    padding:.3rem;
-    
-    
-    
-    
+    padding: .3rem;
 }
-
-
 
 p.moment {
     font-size: 1rem;
-    margin-top:.5rem;
-    padding:.4rem;
+    margin-top: .5rem;
+    padding: .4rem;
     text-align: right;
-    color:rgb(110, 143, 72);
-    background:white;
+    color: rgb(110, 143, 72);
+    background: white;
 }
 
 p.warning {
     display: block;
-    color:rgb(255, 209, 178);
+    color: rgb(255, 209, 178);
     background-color: rgba(255, 255, 255, 0.1);
     font-size: 1.5rem;
     max-width: 900px;
-    width:100%;
-    margin:auto;
-    padding:.7rem;
-    
-    
+    width: 100%;
+    margin: auto;
+    padding: .7rem;
 }
 
-a {text-decoration: none;
-color:white;
-transition: all ease-in-out .3s;}
+a {
+    text-decoration: none;
+    color: white;
+    transition: all ease-in-out .3s;
+}
 
-a:hover{
-    color:rgb(41, 41, 41);
+a:hover {
+    color: rgb(41, 41, 41);
 }
 
 .link-nav {
-    color:black;
+    color: black;
 }
 
-
 .welcome-user {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .buttons {
-    display:flex;
-    height:100%;
+    display: flex;
+    height: 100%;
 }
 
-.span-flex{
-    display:flex;
-    justify-content:space-between;
+.span-flex {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-left: 1rem;
-    
 }
 
 .date {
-    margin:1rem;
+    margin: 1rem;
     font-size: .8rem;
     color: rgb(122, 122, 122);
 }
 
 .home {
-    height:100%;
-    background: #FFEFBA;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    height: 100%;
+    background: #FFEFBA;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .wrapper {
@@ -408,34 +391,32 @@ a:hover{
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: top;
-    margin-top:1rem;
+    margin-top: 1rem;
     margin: auto;
-    margin-bottom:6rem;
-    max-width: 900px;   
-    width:100%;
-    
+    margin-bottom: 6rem;
+    max-width: 900px;
+    width: 100%;
 }
 
 .job-card {
     flex-grow: 1;
-    width:33%;
-    border:1px solid rgba(0, 0, 0, .2);
-    padding:1rem;
-    margin:1rem;
+    width: 33%;
+    border: 1px solid rgba(0, 0, 0, .2);
+    padding: 1rem;
+    margin: 1rem;
     border-radius: 10px;
     background: rgba(70, 136, 132, 0.2);
-
 }
 
 .user-wrapper {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width:80px;
-    height:80px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border-radius: 50%;
-    border:2px solid rgba(255, 255, 255, 1)
+    border: 2px solid rgba(255, 255, 255, 1)
 }
 
 i {
@@ -444,24 +425,24 @@ i {
 }
 
 i:hover {
-    color:rgba(111, 177, 67, 0.4)
+    color: rgba(111, 177, 67, 0.4)
 }
 
-.a-mail{
-    color:rgb(98, 139, 70);
+.a-mail {
+    color: rgb(98, 139, 70);
 }
 
 .no-jobs {
-    color:rgb(125, 151, 92);
+    color: rgb(125, 151, 92);
     font-size: 1.3rem;
 }
 
 .avatar {
-    width:80px;
-    height:80px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border-radius: 50%;
-    border:2px solid rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 1);
     transition: all ease-in-out .3s;
 }
 
@@ -470,131 +451,131 @@ i:hover {
 }
 
 .title {
-    background-color: rgba(134, 69, 69,.5);
-    padding:1rem;
+    background-color: rgba(134, 69, 69, .5);
+    padding: 1rem;
     border-radius: 0 0 32px 8px;
 }
 
 .job-title {
-    
-    background-color: #cccccc; /* Used if the image is unavailable */
-    height: 300px; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    color:white;
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    height: 300px;
+    /* You must set a specified height */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    color: white;
     border-radius: 10px;
     border-radius: 0 0 10px 10px;
-    padding:0;
-    margin-bottom:.5rem;
-    display:flex;
+    padding: 0;
+    margin-bottom: .5rem;
+    display: flex;
     justify-content: space-between;
-    flex-direction:column;
+    flex-direction: column;
     flex-wrap: wrap;
     /*line-height: 3rem;*/
 }
 
 .dots {
-    display:inline;
+    display: inline;
     font-size: 4rem;
     text-align: right;
-    padding:.5rem;
-    color:rgba(0, 0, 0, .7);
+    padding: .5rem;
+    color: rgba(0, 0, 0, .7);
     background-color: rgba(255, 255, 255, .2);
     cursor: pointer;
     transition: all ease-in-out .3s;
 }
 
 .dots:hover {
-    color:rgba(171, 255, 115, 0.6)
+    color: rgba(171, 255, 115, 0.6)
 }
 
 .modal {
     position: absolute;
-    top:0;
-    height:0;
+    top: 0;
+    height: 0;
     pointer-events: none;
     display: none;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
 
 .modal-active {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top:0;
-    height:0;
+    top: 0;
+    height: 0;
     background-color: rgba(0, 0, 0, .5);
-    width:100%;
-    height:100%;
-   
+    width: 100%;
+    height: 100%;
 }
 
 .update-wrapper {
-    width:450px;
+    width: 450px;
     background-color: rgba(0, 0, 0, .7);
-    padding:2rem;
+    padding: 2rem;
     border-radius: 20px;
 }
 
 .update-job {
-    color:white;
+    color: white;
 }
 
 .close-modal {
-    display:block;
-    color:white;
-    
+    display: block;
+    color: white;
     font-size: 1.5rem;
     text-align: right;
     cursor: pointer;
 }
 
 .open-delete {
-    display:block;
-    color:black;
+    display: block;
+    color: black;
     background-color: rgba(80, 133, 67, 0.2);
-    padding:.3rem;
+    padding: .3rem;
     font-size: 1.5rem;
     text-align: right;
     cursor: pointer;
 }
 
 .white-color {
-    color:white;
+    color: white;
 }
 
 .job-title-rows {
-    display:block;
-    background-color: rgba(134, 69, 69,.5);
-    padding:1rem;
+    display: block;
+    background-color: rgba(134, 69, 69, .5);
+    padding: 1rem;
     border-radius: 0 0 32px 8px;
 }
 
-
-
 .status.green {
-    color:rgb(28, 95, 28);
+    color: rgb(28, 95, 28);
     background-color: rgba(86, 171, 47, 0.8);
-    padding:.15rem;
+    padding: .15rem;
     border-radius: 6px;
 }
 
 .status.yellow {
-    color:rgb(173, 139, 27);
+    color: rgb(173, 139, 27);
     background-color: rgba(184, 174, 33, 0.8);
-    padding:.15rem;
+    padding: .15rem;
     border-radius: 6px;
 }
 
 .status.red {
-    color:rgb(99, 23, 23);
+    color: rgb(99, 23, 23);
     background-color: rgba(171, 47, 47, 0.8);
-    padding:.15rem;
+    padding: .15rem;
     border-radius: 6px;
 }
 
@@ -611,333 +592,282 @@ i:hover {
 }
 
 .search-img {
-    height:50px;
+    height: 50px;
 }
 
 .job-search-card {
     margin-bottom: 1rem;
-    padding:1rem;
+    padding: 1rem;
 }
 
 .job-search-card:last-of-type {
     margin-bottom: 6rem;
-    padding:1rem;
+    padding: 1rem;
 }
 
 .apply {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1rem;
 }
 
 .external-link {
-    
-    color:rgb(156, 80, 80);
+    color: rgb(156, 80, 80);
     background-color: rgba(255, 255, 255, 0.4);
-    border:1px solid rgba(60, 112, 25, .4);
+    border: 1px solid rgba(60, 112, 25, .4);
     padding: 1rem;
     border-radius: 8px;
 }
 
 .external-link:hover {
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     background-color: rgba(101, 156, 63, 0.6);
-    border:1px solid rgba(60, 112, 25, .4);
+    border: 1px solid rgba(60, 112, 25, .4);
     padding: 1rem;
     border-radius: 8px;
 }
 
-
-
 .json-p {
-  display: block;/* or inline-block */
-  word-wrap: break-word;
-  overflow: hidden;
-  max-height: 8.5em;
-  line-height: 1.5em;
-  font-size: 1.2rem;
-  padding:1rem;
-  
+    display: block;
+    /* or inline-block */
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 8.5em;
+    line-height: 1.5em;
+    font-size: 1.2rem;
+    padding: 1rem;
 }
 
 .error-message {
     background-color: silver;
-    color:white;
-    max-width: 900px;   
-    width:100%;
-    margin:auto;
-    display:flex;
+    color: white;
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left:1rem;
-    margin-bottom:1rem;
-    height:40px;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    height: 40px;
 }
 
 .error-button {
-    height:40px;
-    width:20px;
-    display:flex;
+    height: 40px;
+    width: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-
 
 .footer {
-    height:60px;
-    width:100%;
+    height: 60px;
+    width: 100%;
     position: fixed;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    bottom:0;
-    left:0;
+    bottom: 0;
+    left: 0;
     font-weight: 700;
-    color:white;
-    background: #56ab2f;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #a8e063, rgba(86, 171, 47, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #a8e063, rgba(86, 171, 47, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    color: white;
+    background: #56ab2f;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, rgba(86, 171, 47, 0.8));
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, rgba(86, 171, 47, 0.8));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-@media (max-width:800px){
+@media (max-width:800px) {
     nav {
-        display:none;
+        display: none;
     }
-
     nav.pagination {
-    
-        height:30px;
-        display:flex;
+        height: 30px;
+        display: flex;
         justify-content: center;
         align-items: center;
         background-color: rgba(33, 66, 33, 0.3);
     }
-
-    h1 {font-size: 1rem;
-    margin-left:1rem;
-    line-height: 1.4rem;    
-}
+    h1 {
+        font-size: 1rem;
+        margin-left: 1rem;
+        line-height: 1.4rem;
+    }
     h2 {
         font-size: 1.3rem;
         padding: 1rem;
     }
-
     select {
-        width:90%;
+        width: 90%;
         font-size: 1.3rem;
     }
-
-    input,textarea { 
-        width:90%;
+    input, textarea {
+        width: 90%;
     }
-
-    
-    .submit-butt{
-        display:block;
+    .submit-butt {
+        display: block;
         font-size: 1.3rem;
-        margin-top:2rem;
+        margin-top: 2rem;
         margin-bottom: 6rem;
-        padding:.4rem;
-        max-width:900px;
+        padding: .4rem;
+        max-width: 900px;
         background-color: rgb(88, 88, 88);
-        color:rgb(231, 231, 231);
-        border:1px solid rgba(0, 0, 0, .4);
+        color: rgb(231, 231, 231);
+        border: 1px solid rgba(0, 0, 0, .4);
         border-radius: 6px;
         transition: all ease-in-out .3s;
         cursor: pointer;
     }
-
     label {
         font-size: 1rem;
     }
-
     header {
-        justify-content:space-between;
-        
+        justify-content: space-between;
     }
-
     button {
         font-size: .9rem;
         width: 90px;
-        
     }
-    
     p {
         font-size: 1rem;
-        
-        
     }
-
-  li {
-        color:white;
-        display:inline-block;
+    li {
+        color: white;
+        display: inline-block;
         font-weight: 700;
-        padding:1rem;
+        padding: 1rem;
         margin-bottom: 2rem;
         transition: all ease-in-out .3s;
         cursor: pointer;
     }
-
     li.pagination-no {
-        display:flex;
-        padding:0;
-        margin-right:1rem;
-        margin-left:1rem;
+        display: flex;
+        padding: 0;
+        margin-right: 1rem;
+        margin-left: 1rem;
         font-weight: 700;
         font-size: .7rem;
-        height:30px;
+        height: 30px;
         transition: all ease-in-out .3s;
         cursor: pointer;
     }
-
     li.pagination-no:hover {
-        color:white;
-        background-color: rgba(0, 0, 0, 0);;
+        color: white;
+        background-color: rgba(0, 0, 0, 0);
+        ;
     }
-    
-
-
     p.menu {
         background-color: rgba(0, 0, 0, 0);
-        border:none;
+        border: none;
     }
-
     .patty {
         display: flex;
         align-items: space-between;
         flex-direction: column;
         margin: 4px;
-        width:20px;
-        height:3px;
+        width: 20px;
+        height: 3px;
         background-color: rgb(255, 255, 255);
         border-radius: 2px;
     }
-
     .burger {
         position: absolute;
         top: 11px;
         left: 0;
-        width:35%;
-        display:inline-block;
-        color:white;
+        width: 35%;
+        display: inline-block;
+        color: white;
         font-size: 1rem;
-        
     }
-
     .burger-nav {
-       
-       display:none;
-       transition: all ease-in-out .3s; 
+        display: none;
+        transition: all ease-in-out .3s;
     }
-
-        
     ul {
-        padding:1rem;
-        height:100%;
-
+        padding: 1rem;
+        height: 100%;
     }
-
     .burger-nav-active {
-        margin-top:.7rem;
-        display:inline-block;
-        transition: all ease-in-out .3s; 
+        margin-top: .7rem;
+        display: inline-block;
+        transition: all ease-in-out .3s;
         background-color: rgb(123, 123, 123);
     }
-
     .wrapper {
-        width:100%;
+        width: 100%;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-
     }
-
     .filebase {
-        width:90%;
+        width: 90%;
     }
-
     .job-card {
         width: 90%;
     }
-    
-
     .welcome-user {
         font-size: 1.2rem;
-        width:90%;
-        
+        width: 90%;
     }
-
     .no-jobs {
-        font-size: 1rem; 
+        font-size: 1rem;
     }
-
     .update-wrapper {
-        width:80%;
+        width: 80%;
     }
-
     .search-headline {
         font-size: 1rem;
         font-weight: 700;
     }
-
     .search-comp {
         font-size: .6rem;
         font-weight: 700;
     }
-
     .search-img {
-        height:30px;
-        
+        height: 30px;
     }
-
     p.warning {
         display: block;
-        color:rgb(255, 209, 178);
+        color: rgb(255, 209, 178);
         background-color: rgba(255, 255, 255, 0.1);
         font-size: 1.2rem;
         max-width: 900px;
-        width:100%;
-        margin:auto;
-        padding:.7rem;
-        
-        
+        width: 100%;
+        margin: auto;
+        padding: .7rem;
     }
-
     p.ninety {
-        width:90%;
+        width: 90%;
     }
-
     .search-button {
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         font-family: Montserrat, sans-serif;
-        color:rgb(188, 223, 175);
+        color: rgb(188, 223, 175);
         background-color: rgb(51, 51, 51);
-        border:1px solid rgba(0, 0, 0, .2);
+        border: 1px solid rgba(0, 0, 0, .2);
         border-radius: 8px;
-        padding:1rem;
+        padding: 1rem;
         font-size: .8rem;
-        height:50px;
-        width:100%;
+        height: 50px;
+        width: 100%;
         transition: all ease-in-out .3s;
         cursor: pointer;
     }
-
     .external-link {
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
-        color:rgb(156, 80, 80);
+        color: rgb(156, 80, 80);
         background-color: rgba(255, 255, 255, 0.4);
-        border:1px solid rgba(60, 112, 25, .4);
+        border: 1px solid rgba(60, 112, 25, .4);
         padding: 1rem;
         border-radius: 8px;
         font-size: .8rem;
-        height:50px;
+        height: 50px;
     }
-
-   
 }

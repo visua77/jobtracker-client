@@ -1,18 +1,18 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 
-const Pagination = ({totalPages, handlePagClick, renderflag})=> {
-    
-    let pages 
+const Pagination = ({ totalPages, handlePagClick, renderflag }) => {
+
+    let pages
 
     if (renderflag) {
-    pages = [...Array(totalPages).keys()].map(num => num+1)
-    console.log('from pag',totalPages)
+        pages = [...Array(totalPages).keys()].map(num => num + 1)
+        //console.log('from pag', totalPages)
     }
 
-    return(
+    return (
         <nav className="pagination">
-            {pages.map(page =>(
-                <button key={page} onClick={()=> handlePagClick(page)}>{page}</button>
+            {pages.map(no => (
+                <a href="#" key={no} onClick={() => handlePagClick(no)}><li className="pagination-no">{no}</li></a>
             ))}
         </nav>
     )
