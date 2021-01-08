@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Pagination = ({ totalPages, handlePagClick, renderflag }) => {
+const Pagination = ({ totalPages, setPage, renderflag }) => {
 
     let pages
 
@@ -12,7 +12,7 @@ const Pagination = ({ totalPages, handlePagClick, renderflag }) => {
     return (
         <nav className="pagination">
             {pages.map(no => (
-                <a href="#" key={no} onClick={() => handlePagClick(no)}><li className="pagination-no">{no}</li></a>
+                <a href="#" key={no} onClick={() => setPage(no)}><li className="pagination-no">{no}</li></a>
             ))}
         </nav>
     )

@@ -31,9 +31,9 @@ const Search = () => {
     const [page, setPage] = useState(1)
     const [totalpages, setTotalPages] = useState(0)
 
-    const [sortedPosts, setSortedPosts] = useState([])
-    const [sortedPosts2, setSortedPosts2] = useState([])
 
+    const [sortedPosts, setSortedPosts] = useState([])
+    const [newSearch, setNewSearch] = useState(false)
     const startIndex = (page - 1) * PAGELIMIT
     //console.log(startIndex, PAGELIMIT)
     //console.log('sorted posts', sortedPosts)
@@ -69,32 +69,52 @@ const Search = () => {
 
 
     //Handle when user click a pagination no, need to understand what happens here
-    const handlePagClick = (num) => {
-        setPage(num)
-        setSortedPosts(posts.hits.slice(startIndex, startIndex + PAGELIMIT))
-        console.log(num, 'pagClick fired!')
-    }
+    useEffect(() => {
+
+        if (posts.hits) {
+            console.log('we have hits', posts)
+            setSortedPosts(posts.hits.slice(startIndex, startIndex + PAGELIMIT))
+        }
+        //handlePagClick()
+    }, [page])
 
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        await fetch(`https://jobsearch.api.jobtechdev.se/search?q=${query}&limit=100`, {
-            headers: {
-                'api-key': api_key,
-                'accept': 'application/json'
+
+    useEffect(() => {
+
+        const search = async () => {
+
+            await fetch(`https://jobsearch.api.jobtechdev.se/search?q=${query}&limit=100`, {
+                headers: {
+                    'api-key': api_key,
+                    'accept': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(data => setPosts(data))
+
+
+            if (posts.hits) {
+                setSortedPosts(posts.hits.slice(startIndex, startIndex + PAGELIMIT))
+                setNewSearch(false)
             }
-        })
-            .then(res => res.json())
-            .then(data => setSortedPosts(data.hits))
 
-        if (renderflag) {
-            console.log('handleSubmit', sortedPosts2)
+            //console.log('handleSubmit', sortedPosts)
+            setIsLoading(false)
+            //console.log('our posts', posts.hits.length)
         }
 
+        search()
 
-        setIsLoading(false)
-        //console.log('our posts', posts.hits.length)
+    }, [newSearch])
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setNewSearch(true)
     }
+
+
 
     const handleModal = () => {
         setModaltoggle(prev => !prev)
@@ -105,19 +125,18 @@ const Search = () => {
     const myRef = useRef(null)
     const executeScroll = () => scrollToRef(myRef)
 
-    console.log('handleSubmit', sortedPosts2)
+    //console.log('handleSubmit', sortedPosts)
 
     return (
         <div ref={myRef}>
             <ModalSavePost class={modaltoggle} setModaltoggle={setModaltoggle} post={post} setPost={setPost} />
 
-            {renderflag ? <Pagination totalPages={totalpages} handlePagClick={handlePagClick} renderflag={renderflag} /> : null}
+            {renderflag ? <Pagination totalPages={totalpages} setPage={setPage} renderflag={renderflag} /> : null}
 
             <h2>Search jobs using the jobtechdev API</h2>
 
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Type something..." onChange={(e) => setQuery(e.target.value)}></input>
-
             </form>
 
             {isLoading === true ?
@@ -126,7 +145,6 @@ const Search = () => {
                     size={250}
                     color={"#56ab2fe1"}
                 /> : null}
-
 
             {renderflag ? <>{sortedPosts.map(search => (
                 <div className="job-search-card" key={search.id}>
