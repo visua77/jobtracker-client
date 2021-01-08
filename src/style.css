@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -316,6 +315,10 @@ span.span-note {
     font-weight: 300;
     border-radius: 8px;
     padding: .3rem;
+}
+
+span.red-col {
+    color: rgb(185, 14, 14);
 }
 
 p.moment {

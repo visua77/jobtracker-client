@@ -1,9 +1,9 @@
-import React,{useEffect,useState,useContext} from 'react'
-import {useHistory} from 'react-router-dom'
+import React, { useEffect, useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import UserContext from '../context/UserContext'
 import ErrorMsg from './ErrorMsg'
 
-const AddJob = ()=> {
+const AddJob = () => {
 
     const [title, setTitle] = useState()
     const [description, setDescription] = useState()
@@ -18,63 +18,65 @@ const AddJob = ()=> {
 
     //console.log(note)
 
-    const handleSubmit = async (e)=> {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-    
-        const postJob = {title, description, status, note}
+
+        const postJob = { title, description, status, note }
 
 
-         const resJson = await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/',{
+        const resJson = await fetch('https://jobtracker77.herokuapp.com/api/users/jobs/', {
             method: 'POST',
             body: JSON.stringify(postJob),
-            headers: { 'Content-Type': 'application/json',
-            'x-auth-token':userData.token }
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': userData.token
+            }
         })
             .then(res => res.json())
             .then(res => {
                 if (res._id) {
                     setTheres(true)
-                  } else {
+                } else {
                     throw new Error(res.msg)
-                  }
+                }
             })
-            .catch(error => setError(error.toString()) ) 
-        }
+            .catch(error => setError(error.toString()))
+    }
 
-    useEffect(()=> {
-        if(theres===true) {
+    useEffect(() => {
+        if (theres === true) {
             //alert('hiya')
-            history.push('/') 
+            history.push('/')
         }
-    },[theres])
+    }, [theres])
 
     //console.log('checking array',formcheck)
     //console.log('response is',theres)
-    
 
-    return(
+
+    return (
         <div>
             <h2>Add job</h2>
-            {error && <ErrorMsg message={error} clearError={()=> setError(undefined)} />}
+            {error && <ErrorMsg message={error} clearError={() => setError(undefined)} />}
             <form onSubmit={handleSubmit}>
-            
-            <label htmlFor="title">Jobtitle:</label>
-            <input type="text"name="title"onChange={(e)=>setTitle(e.target.value)}></input>
-            
-            <label htmlFor="description">Description:</label>
-            <textarea type="text"name="description"rows="6" onChange={(e)=>setDescription(e.target.value)}></textarea>
-            
-            <label htmlFor="note">Comment:</label>
-            <input type="text"name="note"onChange={(e)=>setNote(e.target.value)}></input>
 
-            <label htmlFor="status">Status:</label>
-            <select name="status"onChange={(e)=>setStatus(e.target.value)}>
-                <option value="Green">Green</option>
-                <option value="Yellow">Yellow</option>
-                <option value="Red">Red</option>
-            </select>
-            
-            <input type="submit" value="Add new job"className="submit-butt"></input>
+                <label htmlFor="title">Jobtitle <span className="red-col">(required)</span>:</label>
+                <input type="text" name="title" onChange={(e) => setTitle(e.target.value)}></input>
+
+                <label htmlFor="description">Description <span className="red-col">(required)</span>:</label>
+                <textarea type="text" name="description" rows="6" onChange={(e) => setDescription(e.target.value)}></textarea>
+
+                <label htmlFor="note">Comment:</label>
+                <input type="text" name="note" onChange={(e) => setNote(e.target.value)}></input>
+
+                <label htmlFor="status">Status:</label>
+                <select name="status" onChange={(e) => setStatus(e.target.value)}>
+                    <option value="Green">Green</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Red">Red</option>
+                </select>
+
+                <input type="submit" value="Add new job" className="submit-butt"></input>
 
             </form>
         </div>

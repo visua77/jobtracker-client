@@ -72,7 +72,7 @@ const Search = () => {
     useEffect(() => {
 
         if (posts.hits) {
-            console.log('we have hits', posts)
+            //console.log('we have hits', posts)
             setSortedPosts(posts.hits.slice(startIndex, startIndex + PAGELIMIT))
         }
         //handlePagClick()
